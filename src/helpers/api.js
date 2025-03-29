@@ -9,6 +9,10 @@ const api = {
   details: async (id) => {
     return axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`, {});
   },
+
+  comments: async (id) => {
+    return axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/comments`, {});
+  },  
 };
 
 export default api;

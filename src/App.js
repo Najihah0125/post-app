@@ -9,10 +9,10 @@ function App() {
   const [role, setRole] = useState("");
 
   return (
-    <AuthContext.Provider value={{ setRole }}>
+    <AuthContext.Provider value={{ role, setRole }}>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/posts/:id" element={<Details />} />
         </Routes>

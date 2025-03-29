@@ -12,7 +12,6 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
   const { setRole } = useContext(AuthContext);
 
@@ -36,11 +35,13 @@ export default function Login() {
       (data.email === hardcodeAdmin.email &&
         data.password === hardcodeAdmin.password)
     ) {
-      setIsLoggedIn(true);
       localStorage.setItem("logged", true);
 
       // store role of logged in user
-      if (data.email === hardcodeAdmin.email && data.password === hardcodeAdmin.password) {
+      if (
+        data.email === hardcodeAdmin.email &&
+        data.password === hardcodeAdmin.password
+      ) {
         setRole("admin");
       } else {
         setRole("user");
