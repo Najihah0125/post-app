@@ -1,9 +1,9 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Posts from "./pages/Posts";
 import Details from "./pages/Details";
 import { useState } from "react";
 import { AuthContext } from "./helpers/authContext";
+import { BrowserRouter, Route, Routes } from "react-router";
 
 function App() {
   const [role, setRole] = useState("");

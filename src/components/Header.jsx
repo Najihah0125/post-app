@@ -1,8 +1,7 @@
 import React, { useContext, useState } from "react";
 import Button from "./Button";
-import { SignOut } from "@phosphor-icons/react";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../helpers/authContext";
+import { useNavigate } from "react-router";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -13,7 +12,7 @@ const Header = () => {
   const handleLogout = async () => {
     localStorage.removeItem("logged");
     setRole("");
-    navigate("/posts");
+    // navigate("/posts");
   };
 
   return (

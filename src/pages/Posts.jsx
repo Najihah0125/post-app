@@ -3,7 +3,7 @@ import api from "../helpers/api";
 import toast, { Toaster } from "react-hot-toast";
 import { UserCircle } from "@phosphor-icons/react";
 import Header from "../components/Header";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router";
 
 export default function Posts() {
   const navigate = useNavigate();

@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../helpers/authContext";
+import { useNavigate } from "react-router";
 
 export default function Login() {
   const {
@@ -46,7 +46,7 @@ export default function Login() {
       } else {
         setRole("user");
       }
-
+      toast.success("Login successful");
       navigate("/posts");
     } else {
       toast.error("Incorrect email/password");

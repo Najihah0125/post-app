@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import api from "../helpers/api";
-import { useLocation, useNavigate } from "react-router-dom";
 import { Pencil, Trash, UserCircle } from "@phosphor-icons/react";
 import Header from "../components/Header";
 import Button from "../components/Button";
@@ -8,6 +7,8 @@ import { useForm } from "react-hook-form";
 import Input from "../components/Input";
 import Modal from "../components/Modal";
 import { AuthContext } from "../helpers/authContext";
+import { useLocation, useNavigate } from "react-router";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Details() {
   const commentToBeDelete = useRef({ id: null, name: "" });
@@ -76,11 +77,13 @@ export default function Details() {
     console.log(data.title);
     setValue("title", data.title);
     setIsEdit(false);
+    toast.success("Title successfully updated!");
   };
 
   // delete post
   const handleDeletePost = () => {
     const filterPosts = posts.filter((item) => item.id !== postId);
+    toast.success("Post successfully deleted!");
     navigate("/posts", {
       state: {
         updatedPosts: filterPosts,
@@ -100,6 +103,7 @@ export default function Details() {
     setComments(
       comments.filter((item) => item.id !== commentToBeDelete.current.id)
     );
+    toast.success("Comment successfully deleted!");
     closeModal();
   };
 
@@ -249,6 +253,7 @@ export default function Details() {
         closeModal={closeModal}
         content={<ModalContent type="comment" />}
       />
+      <Toaster />
     </div>
   );
 }
